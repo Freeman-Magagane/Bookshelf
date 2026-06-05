@@ -7,7 +7,7 @@ const book1={
     isRead: false
 };
 library.push(book1);
-console.log(library);
+console.log(library)
 
 const addBook=({title, author, pages, isRead})=>{
     const book={
@@ -19,7 +19,7 @@ const addBook=({title, author, pages, isRead})=>{
 }
 addBook({ title: "1984", author: "George Orwell", pages: 328, isRead: true });
 addBook({ title: "Dune", author: "Frank Herbert", pages: 412, isRead: false });
-console.log(library);
+
 
 const toggleReadStatus=(id)=>{
     const book=library.find(b=>b.id===id);
@@ -30,8 +30,6 @@ const toggleReadStatus=(id)=>{
         return null;
 }
 }
-console.log(toggleReadStatus(1)); 
-console.log(toggleReadStatus(99)); 
 
 const deleteBook=(id)=>{
     const index=library.findIndex(b=>b.id===id);
@@ -42,6 +40,9 @@ const deleteBook=(id)=>{
         return false;
     }
 }
-console.log(deleteBook(2)); 
-console.log(deleteBook(99));
-console.log(library);
+
+
+const formatBook=()=>{
+    return library.map(book=>`${book.title} by ${book.author} (${book.pages} pages) - ${book.isRead ? "Read" : "Unread"}`);
+};
+console.log(formatBook());
