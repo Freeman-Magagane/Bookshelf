@@ -46,3 +46,13 @@ const formatBook=()=>{
     return library.map(book=>`${book.title} by ${book.author} (${book.pages} pages) - ${book.isRead ? "Read" : "Unread"}`);
 };
 console.log(formatBook());
+
+
+const searchBooks=(query)=>{
+    return library.filter((book)=>{
+        return book.title.toLowerCase().includes(query.toLowerCase()) || book.author.toLowerCase().includes(query.toLowerCase())
+    });
+}
+console.log(searchBooks("tolkein"));
+console.log(searchBooks("dune"));
+console.log(searchBooks("xyz")); 
